@@ -1,0 +1,25 @@
+name: Test Increment Tag
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to test'
+        required: true
+        default: 'main'
+      spr_number:
+        description: 'SPR number (for SPR branches)'
+        required: false
+      base_tag:
+        description: 'Base tag (optional)'
+        required: false
+
+jobs:
+  call-increment-tag:
+    uses: ValeriuBletea/incremental_tag/.github/workflows/increment-tag.yaml@main
+    with:
+      branch: ${{ github.event.inputs.branch }}
+      spr_number: ${{ github.event.inputs.spr_number }}
+      base_tag: ${{ github.event.inputs.base_tag }}
+    permissions:
+      contents: write
