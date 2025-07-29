@@ -16,7 +16,7 @@ on:
 
 jobs:
   call-increment-tag:
-    uses: ValeriuBletea/incremental_tag/.github/workflows/increment-tag.yaml@main
+    uses: ValeriuBletea/incremental_tag/.github/workflows/incremental-tag-tag.yaml@main
     with:
       branch: ${{ github.event.inputs.branch }}
       spr_number: ${{ github.event.inputs.spr_number }}
